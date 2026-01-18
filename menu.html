@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bab El Hara | Menu Complet</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:#111;color:#fff;}
+header{background:#c41616;color:#ffd000;text-align:center;padding:25px;font-size:28px;font-weight:bold;}
+.categories{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;padding:20px;}
+.cat{background:#1c1c1c;border-radius:14px;padding:20px;text-align:center;cursor:pointer;transition:.3s;}
+.cat:hover{transform:scale(1.05)}
+.cat h3{color:#ffd000;font-weight:bold}
+section{padding:20px;display:none;}
+section.active{display:block}
+.section-title{text-align:center;font-size:32px;color:#ffd000;margin-bottom:15px;font-weight:bold;}
+.section-image{width:100%;max-width:500px;height:260px;object-fit:cover;border-radius:18px;display:block;margin:0 auto 30px;}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.product{background:#1e1e1e;border-radius:16px;padding:20px;text-align:center;position:relative;}
+.product-name{font-size:20px;margin-bottom:15px;color:#ffd000;font-weight:bold}
+
+/* ===== price-table dynamique centré ===== */
+.price-table{
+  display: grid;
+  gap:5px;
+  text-align:center;
+}
+
+.price-table .size,
+.price-table .price{
+  display:inline-block;
+  min-width:60px;
+  padding:8px;
+  border-radius:8px;
+}
+
+.price-table .size{background:#333;font-weight:bold;}
+.price-table .price{background:#c41616;color:#ffd000;font-weight:bold;}
+
+.simple-price{background:#c41616;color:#ffd000;display:inline-block;padding:10px 20px;border-radius:10px;font-weight:bold;}
+.back{background:#c41616;color:#ffd000;border:none;padding:12px 20px;border-radius:10px;cursor:pointer;margin-bottom:15px;}
+</style>
+</head>
+<body>
+<header>Bab El Hara — Menu Complet</header>
+<div id="cats" class="categories"></div>
+<section id="menu">
+  <button class="back" onclick="back()">← Retour</button>
+  <h2 id="title" class="section-title"></h2>
+  <img id="image" class="section-image">
+  <div id="products" class="products"></div>
+</section>
+<script>
+const MENU_DATA = {
+  pizza:{title:"Nos Pizzas",image:"https://drive.google.com/thumbnail?id=1yvFuAz-cVWQJDsrzODmuJmoe9YkDGa0R&sz=w1000",items:[{name:"Pizza Margarita",sizes:["P","M"],prices:["20 dh","23 dh"]},{name:"Pizza Thon",sizes:["P","M"],prices:["25 dh","30 dh"]},{name:"Pizza 4 Fromages",sizes:["P","M"],prices:["25 dh","30 dh"]},{name:"Pizza Végétarienne",sizes:["P","M"],prices:["25 dh","30 dh"]},{name:"Pizza Dinde",sizes:["P","M"],prices:["30 dh","35 dh"]}]},
+  tacos:{title:"Nos Tacos",image:"https://drive.google.com/thumbnail?id=1D7LtsztZ8OWWFmosKcb9qCaAERQ465f8&sz=w1000",items:[{name:"Tacos Nuggets",sizes:["P","M","XL"],prices:["25 dh","35 dh","50 dh"]},{name:"Tacos Cordon Bleu",sizes:["P","M","XL"],prices:["25 dh","35 dh","50 dh"]},{name:"Tacos Chicken",sizes:["P","M","XL"],prices:["25 dh","35 dh","50 dh"]},{name:"Tacos De Dinde",sizes:["P","M","XL"],prices:["30 dh","40 dh","50 dh"]},{name:"Tacos Mixte",sizes:["P","M","XL"],prices:["35 dh","45 dh","55 dh"]}]},
+  plats:{title:"Nos Plats",image:"https://drive.google.com/thumbnail?id=1s_uORJC-W32A9HnyLo9yC4VwiGVGSgDD&sz=w1000",items:[{name:"Plat De Dinde",prices:["30 dh"]},{name:"Plat Viande Hachée",prices:["30 dh"]},{name:"Plat Nugget",prices:["30 dh"]},{name:"Plat Merguez",prices:["30 dh"]},{name:"Plat Cordon bleu",prices:["30 dh"]},{name:"Plat Mixte",prices:["40 dh"]},{name:"Plat Fruits De Mer",prices:["40 dh"]},{name:"Beb EL Hara",prices:["50 dh"]}]},
+  panzerotti:{title:"Nos Panzerotti",image:"https://drive.google.com/thumbnail?id=167O88b4YmgZL0hS_yGF_FZ53xAOxITvC&sz=w1000",items:[{name:"Panzerotti Dinde",prices:["30 dh"]},{name:"Panzerotti Viande Hachée",prices:["30 dh"]},{name:"Panzerotti Nugget",prices:["30 dh"]},{name:"Panzerotti Chicken",prices:["30 dh"]},{name:"Panzerotti Cordon bleu",prices:["30 dh"]},{name:"Panzerotti Kebab",prices:["35 dh"]},{name:"Panzerotti Fruits De Mer",prices:["35 dh"]},{name:"Panzerotti Mixte",prices:["35 dh"]}]},
+  pasticcio:{title:"Pasticcio",image:"https://drive.google.com/thumbnail?id=1NZmznUeE0nRmV4mqA2xnkOtpSvAKcG7X&sz=w1000",items:[{name:"Pasticcio Dinde",prices:["30 dh"]},{name:"Pasticcio Viande Hachée",prices:["30 dh"]},{name:"Pasticcio Nugget",prices:["30 dh"]},{name:"Pasticcio Cordon bleu",prices:["30 dh"]},{name:"Pasticcio Kebab",prices:["30 dh"]},{name:"Pasticcio Fruits De Mer",prices:["35 dh"]},{name:"Pasticcio Mixte",prices:["35 dh"]}]},
+  shawarma:{title:"Shawarma",image:"https://drive.google.com/thumbnail?id=1aY8DoYe9F80mYIH7PLuOBYVTbAKONnYe&sz=w1000",items:[{name:"Shawarma Normal",prices:["20 dh"]},{name:"Chawarma Fromage",prices:["22 dh"]},{name:"Chawarma Extra",prices:["30 dh"]},{name:"Chawarma Plat",prices:["35 dh"]}]},
+  panini:{title:"Panini",image:"https://drive.google.com/thumbnail?id=1dC3jBriOqZ731yFj2cAsihPVJX9oMyiq&sz=w1000",items:[{name:"Panini Thon",prices:["18 dh"]},{name:"Panini Dinde",prices:["20 dh"]},{name:"Panini Viande Hachée",prices:["20 dh"]},{name:"Panini Nugget",prices:["20 dh"]},{name:"Panini Kebab",prices:["20 dh"]},{name:"Panini Fruits De Mer",prices:["25 dh"]},{name:"Panini Mixte",prices:["25 dh"]}]},
+  burger:{title:"Burger",image:"https://drive.google.com/thumbnail?id=15BKbhBl_3SVq2Z8rYudrN59MZQ2Bl82q&sz=w1000",items:[{name:"Hamburger",prices:["18 dh"]},{name:"Cheeseburger",prices:["22 dh"]},{name:"Chicken burger",prices:["25 dh"]},{name:"BIG burger",prices:["30 dh"]}]},
+  poulet:{title:"Poulet",image:"https://drive.google.com/thumbnail?id=1u2miWRQX58lpjHsa1GsMCWuQqPqX4d93&sz=w1000",items:[{name:"Poulet Complet",prices:["100 dh"]},{name:"Demi Poulet",prices:["50 dh"]},{name:"Quart De Poulet",prices:["25 dh"]}]},
+  sandwich_chaud:{title:"Sandwich Chaud",image:"https://drive.google.com/thumbnail?id=1-Jrp2-WkSFcUq49KKPyctbAjShuyTb7i&sz=w1000",items:[{name:"Sandwich Dinde",prices:["20 dh"]},{name:"Sandwich V-Hachée",prices:["20 dh"]},{name:"Sandwich Merguez",prices:["20 dh"]},{name:"Sandwich Nugget",prices:["20 dh"]},{name:"Sandwich Cordon Bleu",prices:["20 dh"]},{name:"Sandwich Chicken",prices:["20 dh"]},{name:"Sandwich Mixte",prices:["25 dh"]},{name:"Sandwich Fruits De Mer",prices:["30 dh"]}]},
+  sandwich_froid:{title:"Sandwich Froid",image:"https://drive.google.com/thumbnail?id=1sF1NNEkPbF7zjz9KIO7unbAroFEG4JCT&sz=w1000",items:[{name:"Sandwich Normal",prices:["12 dh"]},{name:"Normal + Œuf",prices:["14 dh"]},{name:"Normal + Fromage",prices:["14 dh"]},{name:"Froid Complet",prices:["16 dh"]}]},
+  m9ila:{title:"M9ila",image:"https://drive.google.com/thumbnail?id=1RbhThrDt_SmYeW_bSFvJPFu1vpbJAZxA&sz=w1000",items:[{name:"M9ila Dinde",prices:["25 dh"]},{name:"M9ila V-Hachée",prices:["25 dh"]},{name:"M9ila Fruits De Mer",prices:["30 dh"]},{name:"M9ila Spécial",prices:["35 dh"]}]},
+  jus:{title:"Les Jus",image:"https://drive.google.com/thumbnail?id=1EP0TCrWzEnzXqFCzB3XLImmCJc4TY3B-&sz=w1000",items:[{name:"Jus D'orange",prices:["10 dh"]},{name:"Jus De Citron",prices:["10 dh"]},{name:"Jus De Banane",prices:["12 dh"]},{name:"Jus De Pomme",prices:["12 dh"]},{name:"Jus D'avocat",prices:["15 dh"]},{name:"Jus De Pêche",prices:["12 dh"]},{name:"Panaché",prices:["15 dh"]}]},
+  salades:{title:"Salades",image:"https://drive.google.com/thumbnail?id=1gsymG-GttUKpAI6beJniC4RS-UfqWMvI&sz=w1000",items:[{name:"Salad Rosa",prices:["15 dh"]},{name:"Salad Chef",prices:["20 dh"]},{name:"Salad Beb El Hara",prices:["25 dh"]}]},
+  boissons:{title:"Boissons",image:"https://drive.google.com/thumbnail?id=1Yuo79aYQFAuFdj4HcLAgDiY964CYVXLz&sz=w1000",items:[{name:"Boisson Canette",prices:["6 dh"]},{name:"L'eau Minérale 50cl",prices:["5 dh"]},{name:"Rostoy Canette",prices:["10 dh"]},{name:"Don Simon",prices:["8 dh"]}]},
+  desserts:{title:"Desserts",image:"https://drive.google.com/thumbnail?id=15EuMwJVzJvEFx8TuLjEGIVDOWGKk1QT3&sz=w1000",items:[{name:"Tiramisu",prices:["8 dh"]},{name:"Mahalabia",prices:["10 dh"]}]} 
+};
+
+const cats=document.getElementById("cats");
+const menu=document.getElementById("menu");
+const products=document.getElementById("products");
+
+Object.keys(MENU_DATA).forEach(k=>{
+  cats.innerHTML+=`<div class="cat" onclick="openMenu('${k}')"><h3>${MENU_DATA[k].title}</h3></div>`;
+});
+
+function openMenu(key){
+  cats.style.display="none";
+  menu.classList.add("active");
+  document.getElementById("title").innerText=MENU_DATA[key].title;
+  document.getElementById("image").src=MENU_DATA[key].image;
+  products.innerHTML="";
+
+  MENU_DATA[key].items.forEach(i=>{
+    let html=`<div class="product"><div class="product-name">${i.name}</div>`;
+    if(i.sizes){
+      html+=`<div class="price-table">`;
+      // ligne tailles
+      html+=`<div style="display:flex;justify-content:center;gap:10px;">`;
+      i.sizes.forEach(s=>html+=`<div class="size">${s}</div>`);
+      html+=`</div>`;
+      // ligne prix
+      html+=`<div style="display:flex;justify-content:center;gap:10px;">`;
+      i.prices.forEach(p=>html+=`<div class="price">${p}</div>`);
+      html+=`</div>`;
+      html+=`</div>`;
+    } else {
+      html+=`<div class="simple-price">${i.prices[0]}</div>`;
+    }
+    html+=`</div>`;
+    products.innerHTML+=html;
+  });
+}
+
+function back(){
+  menu.classList.remove("active");
+  cats.style.display="grid";
+}
+</script>
+</body>
+</html>
