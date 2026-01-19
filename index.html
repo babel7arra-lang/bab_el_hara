@@ -7,8 +7,13 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#111;color:#fff;}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#111;
+  color:#fff;
+}
 
+/* ===== HEADER ===== */
 header{
   background:#c41616;
   color:#ffd000;
@@ -57,11 +62,18 @@ header{
   text-shadow:2px 2px 6px #000;
 }
 
+/* ===== TEXT GLOW EFFECT ===== */
 .hero p{
   font-size:20px;
   margin-bottom:30px;
-  opacity:.9;
-  text-shadow:1px 1px 4px #000;
+  color:#ffda44;
+  text-shadow:
+    0 0 5px #ffda44,
+    0 0 10px #ff6b00,
+    0 0 15px #ff0000,
+    0 0 20px #ff6b00,
+    0 0 30px #ffda44;
+  font-weight:bold;
 }
 
 .btn-menu{
@@ -108,7 +120,8 @@ footer{
   color:#aaa;
   margin-top:40px;
 }
-  /* ===== WELCOME SECTION ===== */
+
+/* ===== WELCOME SECTION ===== */
 .welcome{
   max-width:900px;
   margin:40px auto;
@@ -131,7 +144,6 @@ footer{
   line-height:1.8;
   margin-bottom:10px;
 }
-
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
@@ -156,14 +168,14 @@ footer{
     <button class="btn-menu">Voir le Menu</button>
   </a>
 </div>
-  <!-- ===== WELCOME SECTION ===== -->
+
+<!-- ===== WELCOME SECTION ===== -->
 <div class="welcome">
   <h2>مرحبا بكم في مطعم باب الحارة</h2>
   <p>وجبات سريعة بجودة عالية وطعم مميز</p>
   <p>نحن متواجدون بمدينة وجدة ونقدّم أشهى الأطباق الطازجة والشهية لجميع أذواقكم</p>
   <p>رضا الزبون هو أولويتنا، ونحرص على تقديم تجربة مميزة لكل زائر</p>
 </div>
-
 
 <!-- ===== SOCIAL ===== -->
 <div class="social">
