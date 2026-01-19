@@ -81,15 +81,32 @@ section.active{display:block}
   vertical-align:middle;
   border-radius:5px; /* اختياريا */
 }
+ /* ===== HEADER ===== */
+header{
+  background:#c41616;
+  color:#ffd000;
+  text-align:center;
+  padding:15px 20px;
+  font-size:28px;
+  font-weight:bold;
+  display:flex;           /* مهم باش نعرض logo + text في نفس السطر */
+  align-items:center;     /* محاذاة رأسية */
+  justify-content:center; /* محاذاة أفقية في الوسط */
+  gap:15px;               /* المسافة بين logo والعنوان */
+}
+
+header img{
+  height:50px; /* حجم اللوغو */
+  border-radius:8px;
+}
+
 
 
 </style>
 </head>
  
 <body>
- <div class="top-logo">
-  <img src="logo.png" alt="Bab El Hara Logo">
-</div>
+ <img src="logo.png" alt="Logo Bab El Hara">
 <header>Bab El Hara — Menu Complet</header>
 
 
