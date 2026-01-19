@@ -70,21 +70,28 @@ section.active{display:block}
   text-decoration:underline;
 }
  /* ===== LOGO ===== */
-.logo{
-  display:block;       /* باش يكون فسط الشاشة */
-  margin:15px auto;    /* يحطها وسط الصفحة */
-  max-width:120px;     /* الحجم الأقصى للصورة */
-  height:auto;         /* يحافظ على نسبة العرض/الارتفاع */
-  border-radius:10px;  /* زوايا مستديرة خفيفة */
+.top-logo {
+  text-align: left; /* محاذاة الشعار للجانب الأيسر */
+  padding: 10px 20px; /* مسافة من الحافة */
 }
+
+.top-logo img {
+  height:50px;    /* حجم صغير مناسب */
+  width:auto;     /* يحافظ على نسبة الصورة */
+  vertical-align:middle;
+  border-radius:5px; /* اختياريا */
+}
+
 
 </style>
 </head>
  
 <body>
+ <div class="top-logo">
+  <img src="logo.png" alt="Bab El Hara Logo">
+</div>
 <header>Bab El Hara — Menu Complet</header>
- <!-- ===== LOGO ===== -->
-<img src="logo.png" alt="Bab El Hara Logo" class="logo">
+
 
   <div class="navbar">
   <a href="index.html">Accueil</a>
