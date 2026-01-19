@@ -89,6 +89,7 @@ header{
   to { text-shadow: 0 0 10px #ffda44, 0 0 20px #ff6b00, 0 0 25px #ffff66, 0 0 30px #ff6b00, 0 0 50px #ffda44; }
 }
 
+/* ===== MENU BUTTON ===== */
 .btn-menu{
   background:#c41616;
   color:#ffd000;
@@ -99,11 +100,20 @@ header{
   cursor:pointer;
   font-size:18px;
   transition:.3s;
+  box-shadow: 0 0 10px #ff6b00, 0 0 20px #ffda44, 0 0 30px #ff6b00;
+  animation: glowBtn 2s ease-in-out infinite alternate;
 }
 
 .btn-menu:hover{
   background:#a70f0f;
   transform:scale(1.05);
+  box-shadow: 0 0 20px #ffda44, 0 0 30px #ff6b00, 0 0 40px #ff4b00;
+}
+
+/* ===== BUTTON GLOW ANIMATION ===== */
+@keyframes glowBtn {
+  from { box-shadow: 0 0 10px #ff6b00, 0 0 20px #ffda44, 0 0 30px #ff6b00; }
+  to { box-shadow: 0 0 20px #ffda44, 0 0 30px #ff6b00, 0 0 50px #ff4b00; }
 }
 
 /* ===== SOCIAL ===== */
