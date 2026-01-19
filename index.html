@@ -56,24 +56,37 @@ header{
 }
 
 .hero h1{
-  color:#ffd000;
+  color:#ff0000;
   font-size:42px;
   margin-bottom:15px;
-  text-shadow:2px 2px 6px #000;
+  text-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #ff6b00,
+    0 0 15px #ffda44,
+    0 0 20px #ff6b00,
+    0 0 30px #ff0000;
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* ===== TEXT GLOW EFFECT ===== */
+/* ===== HERO TEXT CHALEUR ===== */
 .hero p{
   font-size:20px;
   margin-bottom:30px;
-  color:#ffda44;
+  color:#ff4b00;
   text-shadow:
-    0 0 5px #ffda44,
+    0 0 5px #ff4b00,
     0 0 10px #ff6b00,
-    0 0 15px #ff0000,
+    0 0 15px #ffda44,
     0 0 20px #ff6b00,
-    0 0 30px #ffda44;
+    0 0 30px #ff4b00;
   font-weight:bold;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+/* ===== GLOW ANIMATION ===== */
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ff4b00, 0 0 10px #ff6b00, 0 0 15px #ffda44, 0 0 20px #ff6b00, 0 0 30px #ff4b00; }
+  to { text-shadow: 0 0 10px #ffda44, 0 0 20px #ff6b00, 0 0 25px #ffff66, 0 0 30px #ff6b00, 0 0 50px #ffda44; }
 }
 
 .btn-menu{
