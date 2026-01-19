@@ -22,7 +22,7 @@ header{
   color:#ffd000;
   display:flex;           /* logo + text في نفس السطر */
   align-items:center;     /* محاذاة رأسية */
-  justify-content:center; /* محاذاة أفقية في الوسط */
+  justify-content:center; /* محاذاة أفقية */
   gap:15px;               /* المسافة بين logo والعنوان */
   padding:15px 20px;
   font-size:28px;
@@ -30,10 +30,11 @@ header{
 }
 
 header img{
-  height:50px;       /* حجم اللوغو */
-  width:auto;        /* يحافظ على نسبة الصورة */
+  height:50px;       /* حجم اللوغو بحال الصفحة الرئيسية */
+  width:auto;
   border-radius:8px;
 }
+
 
 /* ===== NAVBAR ===== */
 .navbar{
@@ -151,8 +152,10 @@ section.active{display:block;}
 </head>
  
 <body>
- <img src="logo.png" alt="Logo Bab El Hara">
-<header>Bab El Hara — Menu Complet</header>
+<header>
+  <img src="logo.png" alt="Logo Bab El Hara">
+  Bab El Hara — Menu 
+</header>
 
 
   <div class="navbar">
