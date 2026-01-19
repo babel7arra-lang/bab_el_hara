@@ -3,49 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bab El Hara | Home</title>
+<title>Bab El Hara | Accueil</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,Helvetica,sans-serif;background:#111;color:#fff;}
-header{background:#c41616;color:#ffd000;text-align:center;padding:25px;font-size:28px;font-weight:bold;}
-.navbar{display:flex;justify-content:center;gap:25px;background:#222;padding:15px 0;position:sticky;top:0;z-index:100;}
-.navbar a{color:#ffd000;text-decoration:none;font-weight:bold;}
-.navbar a:hover{text-decoration:underline;}
+
+header{
+  background:#c41616;
+  color:#ffd000;
+  text-align:center;
+  padding:25px;
+  font-size:28px;
+  font-weight:bold;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  background:#222;
+  padding:15px 0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.navbar a{
+  color:#ffd000;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:18px;
+  transition:.3s;
+}
+
+.navbar a:hover{
+  color:#fff;
+  text-decoration:underline;
+}
+
+/* ===== HERO ===== */
 .hero{
   text-align:center;
   padding:100px 20px;
   background:url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092") center/cover no-repeat;
 }
-.hero h1{color:#ffd000;font-size:42px;margin-bottom:10px;text-shadow:2px 2px 6px #000;}
-.hero p{font-size:20px;margin-bottom:25px;opacity:.9;text-shadow:1px 1px 4px #000;}
-.btn-menu{background:#c41616;color:#ffd000;padding:12px 25px;border:none;border-radius:10px;font-weight:bold;cursor:pointer;font-size:18px;}
-.social{display:flex;justify-content:center;gap:20px;margin-top:20px;}
-.social a{color:#ffd000;font-size:24px;text-decoration:none;transition:.3s;}
-.social a:hover{color:#c41616;}
-footer{background:#000;text-align:center;padding:20px;color:#aaa;margin-top:40px;}
+
+.hero h1{
+  color:#ffd000;
+  font-size:42px;
+  margin-bottom:15px;
+  text-shadow:2px 2px 6px #000;
+}
+
+.hero p{
+  font-size:20px;
+  margin-bottom:30px;
+  opacity:.9;
+  text-shadow:1px 1px 4px #000;
+}
+
+.btn-menu{
+  background:#c41616;
+  color:#ffd000;
+  padding:14px 30px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:18px;
+  transition:.3s;
+}
+
+.btn-menu:hover{
+  background:#a70f0f;
+  transform:scale(1.05);
+}
+
+/* ===== SOCIAL ===== */
+.social{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin:30px 0;
+}
+
+.social a{
+  color:#ffd000;
+  font-size:26px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.social a:hover{
+  color:#c41616;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#000;
+  text-align:center;
+  padding:20px;
+  color:#aaa;
+  margin-top:40px;
+}
 </style>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
+
 <body>
 
 <header>Bab El Hara — Restaurant Moderne</header>
 
+<!-- ===== MENU NAVIGATION ===== -->
 <div class="navbar">
-  <a href="index.html">Home</a>
+  <a href="index.html">Accueil</a>
+  <a href="menu.html">Menu</a>
   <a href="contact.html">Contact</a>
 </div>
 
+<!-- ===== HERO ===== -->
 <div class="hero">
   <h1>Bienvenue chez Bab El Hara</h1>
   <p>Fast food moderne • Qualité • Goût authentique</p>
-  <a href="menu.html"><button class="btn-menu">Voir le Menu</button></a>
+  <a href="menu.html">
+    <button class="btn-menu">Voir le Menu</button>
+  </a>
 </div>
 
+<!-- ===== SOCIAL ===== -->
 <div class="social">
   <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
   <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
   <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
-  <a href="https://wa.me/2120689875132" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://wa.me/2120728456587" target="_blank"><i class="fab fa-whatsapp"></i></a>
 </div>
 
 <footer>
