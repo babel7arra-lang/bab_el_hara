@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bab El Hara | Contact</title>
@@ -121,13 +123,30 @@ header img{
 }
 
 /* ===== FOOTER ===== */
-footer{
+.footer{
   background:#000;
   text-align:center;
-  padding:20px;
+  padding:20px 10px;
   color:#aaa;
-  margin-top:40px;
 }
+
+.footer .social{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin-bottom:10px;
+}
+
+.footer .social a{
+  color:#ffd000;
+  font-size:26px;
+  transition:.3s;
+}
+
+.footer .social a:hover{
+  color:#c41616;
+}
+
   .contact-line{
   direction: ltr;        /* يمنع القلب */
   unicode-bidi: embed;  /* مهم */
@@ -183,9 +202,17 @@ footer{
 
 </div>
 
-<footer>
-© 2026 Bab El Hara – Tous droits réservés
+<footer class="footer">
+  <div class="social">
+    <a href="https://wa.me/212724275719" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/bab_elhara48" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+  </div>
+
+  <p>© 2026 Bab El Hara – Tous droits réservés</p>
 </footer>
+
 
 <script>
 function openMaps(){
