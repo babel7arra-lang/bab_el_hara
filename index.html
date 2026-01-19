@@ -27,9 +27,17 @@ header{
   gap:15px;
 }
 
-header img{
-  height:50px; /* حجم اللوغو */
-  border-radius:8px;
+/* ===== HERO TITLE & SUBTITLE PULSE/GLOW EFFECT ===== */
+header h1, header {
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #ff0000; transform: scale(1); }
+  50% { text-shadow: 2px 2px 5px #ff0000, 4px 4px 10px #ff0000; transform: scale(1.03); }
+  100% { text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #ff0000; transform: scale(1); }
+}
+
 }
 
 /* ===== NAVBAR ===== */
