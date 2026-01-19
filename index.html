@@ -18,9 +18,24 @@ header{
   background:#c41616;
   color:#ffd000;
   text-align:center;
-  padding:25px;
+  padding:15px 20px;
   font-size:28px;
   font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+}
+
+header img{
+  height:50px; /* الحجم ديال اللوغو */
+  border-radius:8px;
+  box-shadow:0 0 8px #ffda44;
+  transition: transform 0.3s;
+}
+
+header img:hover{
+  transform: scale(1.1);
 }
 
 /* ===== NAVBAR ===== */
@@ -167,7 +182,10 @@ footer{
 
 <body>
 
-<header>Bab El Hara — Restaurant Moderne</header>
+<header>
+  <img src="logo.png" alt="Logo Bab El Hara">
+  Bab El Hara — Restaurant Moderne
+</header>
 
 <!-- ===== MENU NAVIGATION ===== -->
 <div class="navbar">
