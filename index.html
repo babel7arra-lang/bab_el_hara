@@ -51,42 +51,42 @@ header{
 /* ===== HERO ===== */
 .hero{
   text-align:center;
-  padding:100px 20px;
+  padding:120px 20px;
   background:url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092") center/cover no-repeat;
 }
 
+/* ===== HERO TITLE ===== */
 .hero h1{
-  color:#ff0000;
-  font-size:42px;
+  font-size:48px;
+  font-weight:bold;
+  color:#ffd700; /* jaune */
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #ff0000;
+  animation: pulse 2s infinite alternate;
   margin-bottom:15px;
-  text-shadow:
-    0 0 5px #ff0000,
-    0 0 10px #ff6b00,
-    0 0 15px #ffda44,
-    0 0 20px #ff6b00,
-    0 0 30px #ff0000;
-  animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* ===== HERO TEXT CHALEUR ===== */
+/* ===== HERO SUBTITLE ===== */
 .hero p{
-  font-size:20px;
-  margin-bottom:30px;
-  color:#ff4b00;
-  text-shadow:
-    0 0 5px #ff4b00,
-    0 0 10px #ff6b00,
-    0 0 15px #ffda44,
-    0 0 20px #ff6b00,
-    0 0 30px #ff4b00;
+  font-size:22px;
+  color:#ffb84d;
+  text-shadow:1px 1px 2px #ff6b00;
   font-weight:bold;
+  margin-bottom:30px;
   animation: glow 3s ease-in-out infinite alternate;
 }
 
 /* ===== GLOW ANIMATION ===== */
 @keyframes glow {
-  from { text-shadow: 0 0 5px #ff4b00, 0 0 10px #ff6b00, 0 0 15px #ffda44, 0 0 20px #ff6b00, 0 0 30px #ff4b00; }
-  to { text-shadow: 0 0 10px #ffda44, 0 0 20px #ff6b00, 0 0 25px #ffff66, 0 0 30px #ff6b00, 0 0 50px #ffda44; }
+  from { text-shadow:1px 1px 2px #ff6b00, 0 0 5px #ffda44; }
+  to { text-shadow:1px 1px 2px #ffda44, 0 0 10px #ffb84d; }
+}
+
+/* ===== PULSE ANIMATION FOR TITLE ===== */
+@keyframes pulse {
+  0% { text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #ff0000; transform: scale(1); }
+  50% { text-shadow: 2px 2px 5px #ff0000, 4px 4px 10px #ff0000; transform: scale(1.03); }
+  100% { text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #ff0000; transform: scale(1); }
 }
 
 /* ===== MENU BUTTON ===== */
@@ -100,20 +100,13 @@ header{
   cursor:pointer;
   font-size:18px;
   transition:.3s;
-  box-shadow: 0 0 10px #ff6b00, 0 0 20px #ffda44, 0 0 30px #ff6b00;
-  animation: glowBtn 2s ease-in-out infinite alternate;
+  box-shadow: 0 0 10px #ff6b00, 0 0 20px #ffda44;
 }
 
 .btn-menu:hover{
   background:#a70f0f;
   transform:scale(1.05);
-  box-shadow: 0 0 20px #ffda44, 0 0 30px #ff6b00, 0 0 40px #ff4b00;
-}
-
-/* ===== BUTTON GLOW ANIMATION ===== */
-@keyframes glowBtn {
-  from { box-shadow: 0 0 10px #ff6b00, 0 0 20px #ffda44, 0 0 30px #ff6b00; }
-  to { box-shadow: 0 0 20px #ffda44, 0 0 30px #ff6b00, 0 0 50px #ff4b00; }
+  box-shadow: 0 0 20px #ffda44, 0 0 30px #ff4b00;
 }
 
 /* ===== SOCIAL ===== */
@@ -185,8 +178,8 @@ footer{
 
 <!-- ===== HERO ===== -->
 <div class="hero">
-  <h1>Bienvenue chez Bab El Hara</h1>
-  <p>Fast food moderne • Qualité • Goût authentique</p>
+  <h1>BAB EL HARA RESTAURANT</h1>
+  <p>Le goût qui te fait revenir</p>
   <a href="menu.html">
     <button class="btn-menu">Voir le Menu</button>
   </a>
