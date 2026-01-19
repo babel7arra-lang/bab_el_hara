@@ -229,6 +229,7 @@ Object.keys(MENU_DATA).forEach(k=>{
 });
 
 function openMenu(key){
+ window.scrollTo({ top: 0, behavior: "smooth" });
   cats.style.display="none";
   menu.classList.add("active");
   document.getElementById("title").innerText=MENU_DATA[key].title;
