@@ -7,7 +7,6 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:#111;
@@ -62,12 +61,14 @@ header{
   border-radius:16px;
   border:3px solid #ffd000;
   overflow:hidden;
+  cursor:pointer;
 }
 
 .map-box iframe{
   width:100%;
   height:100%;
   border:0;
+  pointer-events:none; /* يجعل iframe غير قابل للنقر مباشرة */
 }
 
 /* ===== CONTACT SECTION (AR) ===== */
@@ -88,6 +89,26 @@ header{
 .contact-section p{
   font-size:18px;
   line-height:2;
+}
+
+/* ===== OPEN MAP BUTTON ===== */
+.open-map-btn{
+  display:inline-block;
+  background:#c41616;
+  color:#ffd000;
+  padding:12px 25px;
+  border-radius:12px;
+  font-weight:bold;
+  margin:15px auto 0;
+  cursor:pointer;
+  font-size:18px;
+  transition:.3s;
+  text-decoration:none;
+}
+
+.open-map-btn:hover{
+  background:#a70f0f;
+  transform:scale(1.05);
 }
 
 /* ===== FOOTER ===== */
@@ -114,22 +135,23 @@ footer{
 
 <!-- ===== MAP ===== -->
 <div class="map-wrapper">
-  <div class="map-box">
+  <div class="map-box" onclick="openMaps()">
     <iframe
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
       src="https://www.google.com/maps?q=M3J9%2BH5H%2C%20Avenue%20Al%20Mangouchi%20Boumedien%2C%20Oujda&output=embed&z=15">
     </iframe>
   </div>
+  <a href="https://www.google.com/maps/search/?api=1&query=M3J9+H5H,+Avenue+Al+Mangouchi+Boumedien,+Oujda" target="_blank" class="open-map-btn">فتح الخريطة على الهاتف</a>
 </div>
 
 <!-- ===== ABOUT & CONTACT (AR) ===== -->
 <div class="contact-section">
 
   <h2>من نحن</h2>
-  <p>مطعم باب الحارة هو مطعم للوجبات السريعة بمدينة وجدة</p>
-  <p>نحرص على تقديم أكلات ذات جودة عالية باستخدام مكونات طازجة</p>
-  <p>رضا الزبون هو أولويتنا</p>
+  <p>مرحبا بكم في مطعم باب الحارة – وجبات سريعة بجودة عالية وطعم مميز</p>
+  <p>نحن متواجدون بمدينة وجدة ونقدّم أشهى الأطباق باستخدام مكونات طازجة</p>
+  <p>رضا الزبون هو أولويتنا دائماً لضمان أفضل تجربة لكل زبون</p>
 
   <h2>معلومات الاتصال</h2>
   <p>📞 +212 07-28-45-65-87</p>
@@ -141,6 +163,13 @@ footer{
 <footer>
 © 2026 Bab El Hara – Tous droits réservés
 </footer>
+
+<script>
+function openMaps(){
+  // يفتح Google Maps مباشرة بنفس الإحداثيات
+  window.open("https://www.google.com/maps/search/?api=1&query=M3J9+H5H,+Avenue+Al+Mangouchi+Boumedien,+Oujda", "_blank");
+}
+</script>
 
 </body>
 </html>
