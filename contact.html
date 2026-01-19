@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +12,9 @@ body{
   font-family:Arial,Helvetica,sans-serif;
   background:#111;
   color:#fff;
-  direction:rtl;
 }
 
+/* ===== HEADER ===== */
 header{
   background:#c41616;
   color:#ffd000;
@@ -50,27 +50,38 @@ header{
 }
 
 /* ===== MAP ===== */
-#map{
-  width:100%;
-  max-width:800px;
-  height:500px;
+.map-wrapper{
+  max-width:900px;
   margin:30px auto;
-  border-radius:18px;
+  padding:0 15px;
+}
+
+.map-box{
+  width:100%;
+  height:340px;
+  border-radius:16px;
   border:3px solid #ffd000;
   overflow:hidden;
 }
 
-/* ===== CONTACT SECTION ===== */
+.map-box iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* ===== CONTACT SECTION (AR) ===== */
 .contact-section{
   max-width:900px;
-  margin:30px auto;
+  margin:40px auto;
   padding:0 20px;
   text-align:center;
+  direction:rtl;
 }
 
 .contact-section h2{
   color:#ffd000;
-  font-size:28px;
+  font-size:26px;
   margin:25px 0 15px;
 }
 
@@ -92,28 +103,27 @@ footer{
 
 <body>
 
-<header>باب الحارة — تواصل معنا</header>
+<header>Bab El Hara — Contact</header>
 
 <!-- ===== NAVBAR ===== -->
 <div class="navbar">
-  <a href="index.html">الرئيسية</a>
-  <a href="menu.html">المنيو</a>
-  <a href="contact.html">اتصل بنا</a>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="contact.html">Contact</a>
 </div>
 
 <!-- ===== MAP ===== -->
-<div id="map">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.4569637923!2d-1.9921267847821985!3d34.67912782810898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda9db0c457eec9b%3A0xabcdef1234567890!2sBab%20El%20Hara%20Fast%20Food!5e0!3m2!1sar!2sma!4v1700000000000"
-    width="100%"
-    height="100%"
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
+<div class="map-wrapper">
+  <div class="map-box">
+    <iframe
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=M3J9%2BH5H%2C%20Avenue%20Al%20Mangouchi%20Boumedien%2C%20Oujda&output=embed&z=14">
+    </iframe>
+  </div>
 </div>
 
-<!-- ===== ABOUT & CONTACT ===== -->
+<!-- ===== ABOUT & CONTACT (AR) ===== -->
 <div class="contact-section">
 
   <h2>من نحن</h2>
@@ -124,12 +134,12 @@ footer{
   <h2>معلومات الاتصال</h2>
   <p>📞 +212 07-28-45-65-87</p>
   <p>📧 bab.el7arra@gmail.com</p>
-  <p>📍 حي سي لخضر، شارع المنقوشي بومدين، وجدة</p>
+  <p>📍 M3J9+H5H، Avenue Al Mangouchi Boumedien، وجدة</p>
 
 </div>
 
 <footer>
-© 2026 Bab El Hara – جميع الحقوق محفوظة
+© 2026 Bab El Hara – Tous droits réservés
 </footer>
 
 </body>
