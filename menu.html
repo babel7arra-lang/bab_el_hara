@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
@@ -147,6 +149,31 @@ section.active{display:block;}
   cursor:pointer;
   margin-bottom:15px;
 }
+ .social{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin:30px 0;
+}
+
+.social a{
+  color:#ffd000;
+  font-size:26px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.social a:hover{
+  color:#c41616;
+}
+.footer{
+  background:#111;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  padding:20px 0;
+}
+
 
 </style>
 </head>
@@ -231,5 +258,24 @@ function back(){
   cats.style.display="grid";
 }
 </script>
+ <!-- ===== SOCIAL ===== -->
+<div class="social">
+  <a href="https://www.instagram.com/bab_elhara48" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com" target="_blank">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <a href="https://www.tiktok.com" target="_blank">
+    <i class="fab fa-tiktok"></i>
+  </a>
+  <a href="https://wa.me/212724275719" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+ <footer>
+© 2026 Bab El Hara – Tous droits réservés
+</footer>
+
 </body>
 </html>
