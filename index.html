@@ -28,14 +28,8 @@ header{
 }
 
 header img{
-  height:50px; /* الحجم ديال اللوغو */
+  height:50px; /* حجم اللوغو */
   border-radius:8px;
-  box-shadow:0 0 8px #ffda44;
-  transition: transform 0.3s;
-}
-
-header img:hover{
-  transform: scale(1.1);
 }
 
 /* ===== NAVBAR ===== */
@@ -70,38 +64,18 @@ header img:hover{
   background:url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092") center/cover no-repeat;
 }
 
-/* ===== HERO TITLE ===== */
+/* ===== HERO TITLE & SUBTITLE SIMPLE ===== */
 .hero h1{
   font-size:48px;
   font-weight:bold;
-  color:#ffd700; /* jaune */
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #ff0000;
-  animation: pulse 2s infinite alternate;
-  margin-bottom:15px;
+  color:#ffd700; /* أصفر */
+  margin-bottom:10px;
 }
 
-/* ===== HERO SUBTITLE ===== */
 .hero p{
-  font-size:22px;
-  color:#ffb84d;
-  text-shadow:1px 1px 2px #ff6b00;
-  font-weight:bold;
+  font-size:20px;
+  color:#fff; /* أبيض */
   margin-bottom:30px;
-  animation: glow 3s ease-in-out infinite alternate;
-}
-
-/* ===== GLOW ANIMATION ===== */
-@keyframes glow {
-  from { text-shadow:1px 1px 2px #ff6b00, 0 0 5px #ffda44; }
-  to { text-shadow:1px 1px 2px #ffda44, 0 0 10px #ffb84d; }
-}
-
-/* ===== PULSE ANIMATION FOR TITLE ===== */
-@keyframes pulse {
-  0% { text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #ff0000; transform: scale(1); }
-  50% { text-shadow: 2px 2px 5px #ff0000, 4px 4px 10px #ff0000; transform: scale(1.03); }
-  100% { text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #ff0000; transform: scale(1); }
 }
 
 /* ===== MENU BUTTON ===== */
@@ -115,13 +89,11 @@ header img:hover{
   cursor:pointer;
   font-size:18px;
   transition:.3s;
-  box-shadow: 0 0 10px #ff6b00, 0 0 20px #ffda44;
 }
 
 .btn-menu:hover{
   background:#a70f0f;
   transform:scale(1.05);
-  box-shadow: 0 0 20px #ffda44, 0 0 30px #ff4b00;
 }
 
 /* ===== SOCIAL ===== */
