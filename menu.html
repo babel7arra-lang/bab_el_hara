@@ -66,6 +66,24 @@ footer{
   background:#000;text-align:center;
   padding:20px;color:#aaa
 }
+/* ===== SUPPLEMENT BAR ===== */
+.supplement-bar{
+  grid-column: 1 / -1;   /* تاخد العرض كامل ديال grid */
+  background:#ffd000;
+  color:#000;
+  padding:16px;
+  border-radius:14px;
+  font-weight:bold;
+  text-align:center;
+  margin-bottom:25px;
+  box-shadow:0 6px 15px rgba(0,0,0,.4);
+  font-size:18px;
+}
+.supplement-bar span{
+  margin:0 15px;
+}
+
+
 </style>
 </head>
 <body>
@@ -149,28 +167,40 @@ Object.keys(MENU_DATA).forEach(k=>{
 function openMenu(key){
   cats.style.display="none";
   menu.classList.add("active");
-  document.getElementById("title").innerText=MENU_DATA[key].title;
-  document.getElementById("image").src=MENU_DATA[key].image;
-  products.innerHTML="";
+  document.getElementById("title").innerText = MENU_DATA[key].title;
+  document.getElementById("image").src = MENU_DATA[key].image;
+
+  products.innerHTML = ""; // نفرغ المنتجات
+
+  // SUPPLEMENT فقط Sandwich Chaud
+  if(key === "sandwich_chaud"){
+    products.insertAdjacentHTML(
+      "beforeend",
+      `<div class="supplement-bar">
+        <span>➕ Fromage : +2 dh</span>
+        <span>➕ Œuf : +2 dh</span>
+      </div>`
+    );
+  }
 
   MENU_DATA[key].items.forEach(i=>{
-    let html=`<div class="product"><div class="product-name">${i.name}</div>`;
+    let html = `<div class="product">
+      <div class="product-name">${i.name}</div>`;
+
     if(i.sizes){
-      html+=`<div class="price-table">`;
-      // ligne tailles
-      html+=`<div style="display:flex;justify-content:center;gap:10px;">`;
+      html += `<div class="price-table">
+        <div style="display:flex;justify-content:center;gap:10px;">`;
       i.sizes.forEach(s=>html+=`<div class="size">${s}</div>`);
-      html+=`</div>`;
-      // ligne prix
-      html+=`<div style="display:flex;justify-content:center;gap:10px;">`;
+      html += `</div>
+        <div style="display:flex;justify-content:center;gap:10px;">`;
       i.prices.forEach(p=>html+=`<div class="price">${p}</div>`);
-      html+=`</div>`;
-      html+=`</div>`;
+      html += `</div></div>`;
     } else {
-      html+=`<div class="simple-price">${i.prices[0]}</div>`;
+      html += `<div class="simple-price">${i.prices[0]}</div>`;
     }
-    html+=`</div>`;
-    products.innerHTML+=html;
+
+    html += `</div>`;
+    products.insertAdjacentHTML("beforeend", html);
   });
 }
 
