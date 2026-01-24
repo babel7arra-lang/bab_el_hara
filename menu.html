@@ -348,6 +348,67 @@ const MENU_DATA = {
 
 };
 </script>
+ <script>
+const catsDiv = document.getElementById("cats");
+const menuSection = document.getElementById("menu");
+const titleEl = document.getElementById("title");
+const imageEl = document.getElementById("image");
+const productsEl = document.getElementById("products");
+
+/* ===== BUILD CATEGORIES ===== */
+for (const key in MENU_DATA) {
+  const div = document.createElement("div");
+  div.className = "cat";
+  div.innerHTML = `<h3>${MENU_DATA[key].title}</h3>`;
+  div.onclick = () => openMenu(key);
+  catsDiv.appendChild(div);
+}
+
+/* ===== OPEN MENU ===== */
+function openMenu(key){
+  catsDiv.style.display = "none";
+  menuSection.classList.add("active");
+
+  const data = MENU_DATA[key];
+  titleEl.textContent = data.title;
+  imageEl.src = data.image;
+  productsEl.innerHTML = "";
+
+  data.items.forEach(item=>{
+    const p = document.createElement("div");
+    p.className = "product";
+
+    let pricesHTML = "";
+
+    if(item.sizes){
+      pricesHTML = `
+        <div class="price-table">
+          ${item.sizes.map((s,i)=>`
+            <span class="size">${s}</span>
+            <span class="price">${item.prices[i]}</span>
+          `).join("")}
+        </div>
+      `;
+    }else{
+      pricesHTML = `<div class="simple-price">${item.prices[0]}</div>`;
+    }
+
+    p.innerHTML = `
+      <div class="product-name">${item.name}</div>
+      ${pricesHTML}
+    `;
+
+    productsEl.appendChild(p);
+  });
+}
+
+/* ===== BACK ===== */
+function back(){
+  menuSection.classList.remove("active");
+  catsDiv.style.display = "grid";
+}
+</script>
+
 
  <!-- ===== RESEAUX SOCIAUX ===== -->
 <div class="social">
